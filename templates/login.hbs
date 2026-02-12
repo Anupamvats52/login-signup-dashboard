@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/login.css">
+</head>
+<body>
+
+<div class="login-container">
+    <h1>Login Form</h1>
+    <form action="/login" method="post" onsubmit="return validateLogin()">
+    <input type="text" id="loginName" name="name" placeholder="Enter Username">
+    <input type="password" id="loginPassword" name="password" placeholder="Enter Password">
+    <input class="sub" type="submit" value="Login">
+    <h3>Don’t have an account?</h3>
+        <a href="/signup">Create a new account</a>
+</form>
+
+<p id="loginError" style="color:red;"></p>
+
+<script>
+function validateLogin() {
+    let name = document.getElementById("loginName").value.trim();
+    let password = document.getElementById("loginPassword").value.trim();
+    let error = document.getElementById("loginError");
+
+    error.innerText = "";
+
+    if (name === "" || password === "") {
+        error.innerText = "All fields are required";
+        return false;
+    }
+
+    return true;
+}
+</script>
+
+    
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <link rel="stylesheet" href="/login.css">
+</head>
+<body>
+
+    <div class="signup-container">
+    <h1>Signup Form</h1>
+    <form action="/signup" method="post" onsubmit="return validateSignup()">
+    <input type="text" id="name" name="name" placeholder="Enter Username">
+    <input type="password" id="password" name="password" placeholder="Enter Password">
+    <input class="sub" type="submit" value="Sign Up">
+    <h3>Already have an account?</h3>
+        <a href="/">Login here</a>
+</form>
+
+<p id="signupError" style="color:red; margin-top:10px;"></p>
+
+<script>
+function validateSignup() {
+    let name = document.getElementById("name").value.trim();
+    let password = document.getElementById("password").value.trim();
+    let error = document.getElementById("signupError");
+
+    error.innerText = ""; // reset error
+
+    if (name === "") {
+        error.innerText = "Username is required";
+        return false;
+    }
+
+    if (name.length < 3) {
+        error.innerText = "Username must be at least 3 characters";
+        return false;
+    }
+
+    if (password === "") {
+        error.innerText = "Password is required";
+        return false;
+    }
+
+    if (password.length < 6) {
+        error.innerText = "Password must be at least 6 characters";
+        return false;
+    }
+
+    return true; // form submit
+}
+</script>
+
+
+</body>
+</html>
