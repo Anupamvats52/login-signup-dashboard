@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const path = require("path");
 const app = express();
@@ -76,3 +78,4 @@ app.post("/login", async (req, res) => {
 app.listen(port, () => {
   console.log("port connected");
 });
+
